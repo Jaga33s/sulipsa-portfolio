@@ -878,6 +878,16 @@
     .project-body{padding:28px 24px;}
     .hero-floater{display:none;}
   }
+
+.projects-section{position:relative;overflow:hidden;}
+.projects-section::before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 20% 20%, rgba(126,200,242,.18), transparent 28%),radial-gradient(circle at 80% 70%, rgba(232,185,74,.18), transparent 30%),radial-gradient(circle at 60% 30%, rgba(27,186,99,.12), transparent 25%);animation:projectGlow 14s linear infinite;filter:blur(40px);z-index:0;}
+.project-grid{position:relative;z-index:2;}
+.project-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.project-bg span{position:absolute;width:8px;height:8px;border-radius:50%;background:#7ec8f2;box-shadow:0 0 18px #7ec8f2;animation:floatParticles 12s linear infinite;}
+.project-bg span:nth-child(1){left:10%;animation-delay:0s}.project-bg span:nth-child(2){left:35%;animation-delay:2s}.project-bg span:nth-child(3){left:60%;animation-delay:4s}.project-bg span:nth-child(4){left:82%;animation-delay:6s}.project-bg span:nth-child(5){left:92%;animation-delay:8s}
+@keyframes projectGlow{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.15)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes floatParticles{from{transform:translateY(120%);opacity:0}20%,80%{opacity:1}to{transform:translateY(-120%);opacity:0}}
+
 </style>
 </head>
 <body>
@@ -1045,7 +1055,7 @@
   </div>
 </section>
 
-<section id="projects" class="projects-section reveal">
+<section id="projects" class="projects-section reveal"><div class="project-bg"><span></span><span></span><span></span><span></span><span></span></div>
   <span class="section-eyebrow on-dark">~/projects</span>
   <h2>Things I've shipped</h2>
   <p class="section-sub">Three projects, three different muscles — cloud infrastructure, applied AI, and a full microservices product.</p>
@@ -1122,7 +1132,7 @@
         <div class="p-label">02 · Applied AI / ML</div>
         <h3>Smart Farming Assistant</h3>
         <p>An AI voice &amp; crop intelligence system built to make agronomic insight accessible — even through a spoken question.</p>
-        <div class="impact-badge">Shipped &amp; live — try it yourself ↗</div>
+        <div class="impact-badge">Shipped &amp; Live</div>
         <div class="tag-row">
           <span class="tag"><i class="devicon-python-plain"></i>Python</span>
           <span class="tag"><i class="devicon-scikitlearn-plain"></i>Scikit-learn</span>
